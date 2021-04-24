@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_label_size">20sp</dimen>
+    <dimen name="buttons_height_and_width">120dp</dimen>
+    <dimen name="layout_Width">393dp</dimen>
+    <dimen name="layou_heigth">644dp</dimen>
+</resources>
