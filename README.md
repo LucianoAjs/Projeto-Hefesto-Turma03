@@ -52,14 +52,14 @@ Na pasta dialer copie o arquivo e o substitua no seguinte path:
 
 Passo 4: Build
 
-●Primeiramente devemos atualizar nossa API. Para isso faça o seguinte comando:
+● Primeiramente devemos atualizar nossa API. Para isso faça o seguinte comando:
 make update-api Em seguida atualize os stubs com o comando:
 
 >make api-stubs-docs-update-current-api Por último, dê o comando: make -j4
 
 Passo 5: Emulator
 
-●Como não configuramos o SELinux, o nosso serviço estará indisponível. Para torná-lo disponível mesmo sem configurar o SELinux devemos desabilitar o SELinux
+● Como não configuramos o SELinux, o nosso serviço estará indisponível. Para torná-lo disponível mesmo sem configurar o SELinux devemos desabilitar o SELinux
 utilizando a flag -selinux. O comando completo a seguir: 
 
 >emulator -selinux disabled
