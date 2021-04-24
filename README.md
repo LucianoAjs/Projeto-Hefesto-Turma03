@@ -8,7 +8,8 @@
 # Tutorial de como rodar o projeto com o AOSP v-10 r-47.
 
 Passo 1: Framework
-Na pasta framework contém 8 arquivos. Copie e cole os 4 arquivos nos
+
+● Na pasta framework contém 8 arquivos. Copie e cole os 4 arquivos nos
 seguintes paths:
 
 ● IPhonebookService.aidl
@@ -22,7 +23,7 @@ seguintes paths:
 
 ● PhonebookManager.java
 /aosp/frameworks/base/core/java/android/app/
-Modificamos 4 arquivos no framework. Então você deverá substituí-los ou
+ Modificamos 4 arquivos no framework. Então você deverá substituí-los ou
 editá-los.
 
 ● Context.java
