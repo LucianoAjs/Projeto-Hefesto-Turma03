@@ -1,9 +1,9 @@
 # Projeto Hefesto Turma 03
 > O Projeto Hefesto é Programa de Capacitação e Desenvolvimento de Aplicações para Dispositivos Móveis, a ser desenvolvido no CDTI/EST-UEA (Centro de Desenvolvimento de Tecnologias e Inovação da Escola Superior de Tecnologia da Universidade do Estado do Amazonas).
 
-# ● Projeto: Implementação de um controle para restringir as ligações do celular.
-# ● Tema: Adicionar ao AOSP um controle sobre os números discados.
-# ● Objetivo: Bloquear no AOSP o uso do Dialer (Discador) no celular, impedindo de realizar ligações para números fora de uma lista pré-definida para o uso em ambiente corporativo.
+ ● Projeto: Implementação de um controle para restringir as ligações do celular.
+ ● Tema: Adicionar ao AOSP um controle sobre os números discados.
+ ● Objetivo: Bloquear no AOSP o uso do Dialer (Discador) no celular, impedindo de realizar ligações para números fora de uma lista pré-definida para o uso em ambiente corporativo.
 
 # Tutorial de como rodar o projeto com o AOSP v-10 r-47.
 
