@@ -12,42 +12,44 @@ Passo 1: Framework
 ● Na pasta framework contém 8 arquivos. Copie e cole os arquivos nos
 seguintes paths:
 
-● IPhonebookService.aidl
+> IPhonebookService.aidl
 /aosp/frameworks/base/core/java/android/app/
 
-● PhonebookService.java
+>  PhonebookService.java
 /aosp/frameworks/base/services/core/java/com/android/server/
 
-● PhonebookServiceHelper.java
+> PhonebookServiceHelper.java
 /aosp/frameworks/base/services/core/java/com/android/server/
 
-● PhonebookManager.java
+> PhonebookManager.java
 /aosp/frameworks/base/core/java/android/app/
 
-● Context.java
+> Context.java
 /aosp/frameworks/base/core/java/android/content/
 
-● Android.bp
+> Android.bp
 /aosp/frameworks/base/
 
-● SystemServer.java
+> SystemServer.java
 /aosp/frameworks/base/services/java/com/android/server/
 
-● SystemServiceRegistry,java
+> SystemServiceRegistry,java
 /aosp/frameworks/base/core/java/android/app/
 
 Passo 2: Vips Application
 
-● Copie o cole a pasta Vips para o path: /aosp/packages/apps/
+● Copie o cole a pasta Vips para o path:
+
+> /aosp/packages/apps/
 
 ● Depois adicione o nome do aplicativo no PRODUCT_PACKAGES no arquivo
-handheld_system.mk no path: aosp/build/target/product.
+handheld_system.mk no path:
 
-Passo 3: Dialer Application
-Na pasta dialer copie o arquivo e o substitua no seguinte path:
+> aosp/build/target/product.
 
-● NewOutgoingCallIntentBroadcaster.java
-/aosp/packages/services/Telecomm/src/com/android/server/telecom/
+Passo 3: Dialer Application Na pasta dialer copie o arquivo e o substitua no seguinte path:
+
+> NewOutgoingCallIntentBroadcaster.java/aosp/packages/services/Telecomm/src/com/android/server/telecom/
 
 Passo 4: Build
 
@@ -63,6 +65,6 @@ utilizando a flag -selinux. O comando completo a seguir:
 
 >emulator -selinux disabled
 
-Caso queira limpar os dados do emulador você deve utilizar também a flag -wipe-data. Então o comando ficará assim:
+● Caso queira limpar os dados do emulador você deve utilizar também a flag -wipe-data. Então o comando ficará assim:
 
 >emulator -wipe-data -selinux disabled
