@@ -1,72 +1,95 @@
-# Projeto Hefesto Turma 03
-> O Projeto Hefesto é Programa de Capacitação e Desenvolvimento de Aplicações para Dispositivos Móveis, a ser desenvolvido no CDTI/EST-UEA (Centro de Desenvolvimento de Tecnologias e Inovação da Escola Superior de Tecnologia da Universidade do Estado do Amazonas).
+# Projeto Hefesto - Turma 03
 
-# Projeto: Implementação de um controle para restringir as ligações do celular.
- 
-# Tema: Adicionar ao AOSP um controle sobre os números discados.
- 
-# Objetivo: Bloquear no AOSP o uso do Dialer (Discador) no celular, impedindo de realizar ligações para números fora de uma lista pré-definida para o uso em ambiente corporativo.
+O **Projeto Hefesto** é um Programa de Capacitação e Desenvolvimento de Aplicações para Dispositivos Móveis, desenvolvido no **CDTI/EST-UEA** (Centro de Desenvolvimento de Tecnologias e Inovação da Escola Superior de Tecnologia da Universidade do Estado do Amazonas).
 
-# Tutorial de como rodar o projeto com o AOSP v-10 r-47.
+---
 
-Passo 1: Framework
+## Projeto: Implementação de um Controle para Restringir Ligações no Celular
 
-● Na pasta framework contém 8 arquivos. Copie e cole os arquivos nos
-seguintes paths:
+### **Tema**: Adicionar ao AOSP um controle sobre os números discados.  
+### **Objetivo**:  
+Restringir o uso do Dialer (Discador) no celular em dispositivos Android, bloqueando ligações para números que não estejam em uma lista pré-definida. Esse controle é ideal para ambientes corporativos.
 
-> IPhonebookService.aidl
-/aosp/frameworks/base/core/java/android/app/
+---
 
->  PhonebookService.java
-/aosp/frameworks/base/services/core/java/com/android/server/
+## Tutorial para Rodar o Projeto no AOSP v10-r47
 
-> PhonebookServiceHelper.java
-/aosp/frameworks/base/services/core/java/com/android/server/
+### **Passo 1: Configuração do Framework**
 
-> PhonebookManager.java
-/aosp/frameworks/base/core/java/android/app/
+Na pasta `framework`, copie os seguintes arquivos para os respectivos caminhos:
 
-> Context.java
-/aosp/frameworks/base/core/java/android/content/
+- **`IPhonebookService.aidl`**  
+  `/aosp/frameworks/base/core/java/android/app/`
 
-> Android.bp
-/aosp/frameworks/base/
+- **`PhonebookService.java`**  
+  `/aosp/frameworks/base/services/core/java/com/android/server/`
 
-> SystemServer.java
-/aosp/frameworks/base/services/java/com/android/server/
+- **`PhonebookServiceHelper.java`**  
+  `/aosp/frameworks/base/services/core/java/com/android/server/`
 
-> SystemServiceRegistry,java
-/aosp/frameworks/base/core/java/android/app/
+- **`PhonebookManager.java`**  
+  `/aosp/frameworks/base/core/java/android/app/`
 
-Passo 2: Vips Application
+- **`Context.java`**  
+  `/aosp/frameworks/base/core/java/android/content/`
 
-● Copie o cole a pasta Vips para o path:
+- **`Android.bp`**  
+  `/aosp/frameworks/base/`
 
-> /aosp/packages/apps/
+- **`SystemServer.java`**  
+  `/aosp/frameworks/base/services/java/com/android/server/`
 
-● Depois adicione o nome do aplicativo no PRODUCT_PACKAGES no arquivo
-handheld_system.mk no path:
+- **`SystemServiceRegistry.java`**  
+  `/aosp/frameworks/base/core/java/android/app/`
 
-> aosp/build/target/product.
+---
 
-Passo 3: Dialer Application Na pasta dialer copie o arquivo e o substitua no seguinte path:
+### **Passo 2: Configuração da Aplicação VIPS**
 
-> NewOutgoingCallIntentBroadcaster.java/aosp/packages/services/Telecomm/src/com/android/server/telecom/
+● Copie a pasta **`Vips`** para o seguinte caminho:  
+   `/aosp/packages/apps/`
 
-Passo 4: Build
+● Adicione o nome do aplicativo no `PRODUCT_PACKAGES` no arquivo `handheld_system.mk` localizado em:  
+   `/aosp/build/target/product/`
 
-● Primeiramente devemos atualizar nossa API. Para isso faça o seguinte comando:
-make update-api Em seguida atualize os stubs com o comando:
+---
 
->make api-stubs-docs-update-current-api Por último, dê o comando: make -j4
+### **Passo 3: Configuração do Aplicativo Dialer**
 
-Passo 5: Emulator
+Substitua o arquivo **`NewOutgoingCallIntentBroadcaster.java`** pelo arquivo presente na pasta `dialer`. O caminho para substituição é:  
+`/aosp/packages/services/Telecomm/src/com/android/server/telecom/`
 
-● Como não configuramos o SELinux, o nosso serviço estará indisponível. Para torná-lo disponível mesmo sem configurar o SELinux devemos desabilitar o SELinux
-utilizando a flag -selinux. O comando completo a seguir: 
+---
 
->emulator -selinux disabled
+### **Passo 4: Build do Projeto**
 
-● Caso queira limpar os dados do emulador você deve utilizar também a flag -wipe-data. Então o comando ficará assim:
+● Atualize a API com o comando:  
+```bash
+make update-api
+```
+● Atualize os stubs com o comando:
+```bash
+make api-stubs-docs-update-current-api
+```
+● Compile o projeto:
+```bash
+make -j4
+```
 
->emulator -wipe-data -selinux disabled
+### **Passo 5: Configuração do Emulador**
+
+  ● Execute o emulador com o SELinux desativado usando o seguinte comando:
+
+  ```bash
+  emulator -selinux disabled
+  ```
+
+  ● Caso queira limpar os dados do emulador, utilize também a flag -wipe-data:
+
+ ```bash
+  emulator -wipe-data -selinux disabled
+  ```
+
+
+Observação:
+Como o SELinux não foi configurado, o serviço estará indisponível por padrão. Desabilitar o SELinux é necessário para tornar o serviço funcional.
